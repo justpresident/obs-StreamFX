@@ -53,7 +53,7 @@ using namespace streamfx::encoder::ffmpeg;
 
 debug::debug() : handler("") {}
 
-void debug::properties(ffmpeg_instance* instance, obs_properties_t* props)
+void debug::properties(ffmpeg_factory* factory, ffmpeg_instance* instance, obs_properties_t* props)
 {
 	const AVCodec* codec = instance->get_avcodec();
 

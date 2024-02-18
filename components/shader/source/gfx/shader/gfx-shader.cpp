@@ -359,6 +359,7 @@ uint32_t streamfx::gfx::shader::shader::width()
 	case shader_mode::Transition:
 		return _base_width;
 	case shader_mode::Source:
+        [[fallthrough]];
 	case shader_mode::Filter:
 		switch (_width_type) {
 		case size_type::Pixel:
@@ -366,6 +367,7 @@ uint32_t streamfx::gfx::shader::shader::width()
 		case size_type::Percent:
 			return std::clamp(static_cast<uint32_t>(_width_value * _base_width), 1u, 16384u);
 		}
+        [[fallthrough]];
 	default:
 		return 0;
 	}
@@ -377,6 +379,7 @@ uint32_t streamfx::gfx::shader::shader::height()
 	case shader_mode::Transition:
 		return _base_height;
 	case shader_mode::Source:
+        [[fallthrough]];
 	case shader_mode::Filter:
 		switch (_height_type) {
 		case size_type::Pixel:
@@ -384,6 +387,7 @@ uint32_t streamfx::gfx::shader::shader::height()
 		case size_type::Percent:
 			return std::clamp(static_cast<uint32_t>(_height_value * _base_height), 1u, 16384u);
 		}
+        [[fallthrough]];
 	default:
 		return 0;
 	}

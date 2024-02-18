@@ -491,14 +491,17 @@ void nvenc::migrate(ffmpeg_factory* factory, ffmpeg_instance* instance, obs_data
 			case 2: // VBR_HQ
 				obs_data_set_int(settings, ST_KEY_RATECONTROL_TWOPASS, 1);
 				obs_data_set_string(settings, ST_KEY_RATECONTROL_MULTIPASS, "qres");
+                [[fallthrough]];
 			case 1: // VBR
 				obs_data_set_string(settings, ST_KEY_RATECONTROL_MODE, "vbr");
 				break;
 			case 5: // CBR_LD_HQ
 				obs_data_set_int(settings, ST_KEY_OTHER_LOWDELAYKEYFRAMESCALE, 1);
+                [[fallthrough]];
 			case 4: // CBR_HQ
 				obs_data_set_int(settings, ST_KEY_RATECONTROL_TWOPASS, 1);
 				obs_data_set_string(settings, ST_KEY_RATECONTROL_MULTIPASS, "qres");
+                [[fallthrough]];
 			case 3: // CBR
 				obs_data_set_string(settings, ST_KEY_RATECONTROL_MODE, "cbr");
 				break;
